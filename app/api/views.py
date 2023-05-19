@@ -46,6 +46,18 @@ class ClienteRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Cliente.objects.all()
     serializer_class = ClienteSerializer
 
+class ClienteVerificationView(generics.GenericAPIView):
+    serializer_class = ClienteSerializer
+
+    def post(self, request, *args, **kwargs):
+        cedula = request.data.get('cedula')
+        try:
+            cliente = Cliente.objects.get(cedula=cedula)
+        except Cliente.DoesNotExist:
+            return Response({'mensaje': 'Cliente no encontrado'}, status=404)
+        serializer = self.get_serializer(cliente)
+        return Response(serializer.data)
+
 class RepuestoListCreateView(generics.ListCreateAPIView):
     queryset = Repuesto.objects.all()
     serializer_class = RepuestoSerializer

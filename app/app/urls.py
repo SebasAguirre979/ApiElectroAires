@@ -25,6 +25,7 @@ urlpatterns = [
     path('usuarios/verificacion/', UsuarioVerificationView.as_view(), name='usuario-verification'),
     path('clientes/', ClienteListCreateView.as_view(), name='cliente-list-create'),
     path('clientes/<int:pk>/', ClienteRetrieveUpdateDestroyView.as_view(), name='cliente-retrieve-update-destroy'),
+    path('clientes/verificacion/', ClienteVerificationView.as_view(), name='cliente-verification'),
     path('repuestos/', RepuestoListCreateView.as_view(), name='repuesto-list-create'),
     path('repuestos/<int:pk>/', RepuestoRetrieveUpdateDestroyView.as_view(), name='repuesto-retrieve-update-destroy'),
     path('ventas/', VentaListCreateView.as_view(), name='venta-list-create'),
