@@ -1,7 +1,7 @@
 from rest_framework import generics
 from rest_framework.response import Response
-from .models import Usuario
-from .serializers import UsuarioSerializer, LoginSerializer
+from .models import Usuario, Cliente, Repuesto
+from .serializers import *
 from django.contrib.auth.hashers import check_password
 
 class UsuarioListCreateView(generics.ListCreateAPIView):
@@ -37,3 +37,67 @@ PUT /usuarios/<id>/: Actualiza los detalles de un usuario específico.
 DELETE /usuarios/<id>/: Elimina un usuario específico.
 POST /usuarios/verificacion/: Verifica si un usuario existe en la base de datos según el correo y la contraseña proporcionados.
 Recuerda que este es solo un ejemplo básico y puede requerir ajustes según tus necesidades específicas, como agregar autenticación y permisos. """
+
+class ClienteListCreateView(generics.ListCreateAPIView):
+    queryset = Cliente.objects.all()
+    serializer_class = ClienteSerializer
+
+class ClienteRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Cliente.objects.all()
+    serializer_class = ClienteSerializer
+
+class RepuestoListCreateView(generics.ListCreateAPIView):
+    queryset = Repuesto.objects.all()
+    serializer_class = RepuestoSerializer
+
+class RepuestoRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Repuesto.objects.all()
+    serializer_class = RepuestoSerializer
+
+class VentaListCreateView(generics.ListCreateAPIView):
+    queryset = Venta.objects.all()
+    serializer_class = VentaSerializer
+
+class VentaRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Venta.objects.all()
+    serializer_class = VentaSerializer
+
+class DetalleVentaListCreateView(generics.ListCreateAPIView):
+    queryset = DetalleVenta.objects.all()
+    serializer_class = DetalleVentaSerializer
+
+class DetalleVentaRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = DetalleVenta.objects.all()
+    serializer_class = DetalleVentaSerializer
+
+class VehiculoListCreateView(generics.ListCreateAPIView):
+    queryset = Vehiculo.objects.all()
+    serializer_class = VehiculoSerializer
+
+class VehiculoRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Vehiculo.objects.all()
+    serializer_class = VehiculoSerializer
+
+class ServicioListCreateView(generics.ListCreateAPIView):
+    queryset = Servicio.objects.all()
+    serializer_class = ServicioSerializer
+
+class ServicioRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Servicio.objects.all()
+    serializer_class = ServicioSerializer
+
+class DetalleServicioListCreateView(generics.ListCreateAPIView):
+    queryset = DetalleServicio.objects.all()
+    serializer_class = DetalleServicioSerializer
+
+class DetalleServicioRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = DetalleServicio.objects.all()
+    serializer_class = DetalleServicioSerializer
+
+class ValoracionListCreateView(generics.ListCreateAPIView):
+    queryset = Valoracion.objects.all()
+    serializer_class = ValoracionSerializer
+
+class ValoracionRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Valoracion.objects.all()
+    serializer_class = ValoracionSerializer

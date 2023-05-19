@@ -78,10 +78,10 @@ WSGI_APPLICATION = 'app.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'electroaires3',
+        'NAME': 'electroaires',
         'USER': 'postgres',
-        'PASSWORD':'america1207',
-        'HOST':'localhost',
+        'PASSWORD':'prueba1234',
+        'HOST':'35.247.247.120',
         'PORT': '5432',
     }
 }
